@@ -5,6 +5,8 @@ def canUnlockAll(boxes):
     ''' Function that checks if all boxes are unlocked or not '''
     check = []
     check.insert(0, True)
+    if not boxes:
+        return False
     for i in range(len(boxes) - 1):
         before = i-1
         after = i+1
