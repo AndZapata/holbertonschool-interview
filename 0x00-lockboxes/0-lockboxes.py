@@ -9,7 +9,7 @@ def canUnlockAll(boxes):
         flag = False
         for j in range(len(boxes)):
             flag = i in boxes[j] and i != j
-            if flag != False:
+            if flag is not False:
                 check[i] = flag
                 break
         if flag is False:
