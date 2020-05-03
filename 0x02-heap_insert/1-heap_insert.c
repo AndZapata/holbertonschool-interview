@@ -28,7 +28,6 @@ heap_t *helper_insertion(binary_tree_t *root, int val, int idx, int size)
 		return (NULL);
 	if (idx + 1 == size / 2)
 	{
-		printf("%d", size);
 		if (size % 2 == 1)
 		{
 			root->right = binary_tree_node(root, val);
