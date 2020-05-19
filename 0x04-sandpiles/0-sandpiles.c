@@ -26,7 +26,7 @@ void new_print_grid(int grid1[3][3])
 		{
 			if (j)
 				printf(" ");
-			printf("%d", grid[i][j]);
+			printf("%d", grid1[i][j]);
 		}
 		printf("\n");
 	}
