@@ -12,7 +12,7 @@ try:
         code = stdin_list[-2]
         if code in status_code.keys():
             status_code[code] = status_code.get(code) + 1
-            total_size += int(stdin_list[-1])
+        total_size += int(stdin_list[-1])
         counter += 1
         if counter % 10 == 0:
             print('File size: {}'.format(total_size))
