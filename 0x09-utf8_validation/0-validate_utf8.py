@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Inirialize the file """
+""" Init the file """
 
 
 def validUTF8(data):
