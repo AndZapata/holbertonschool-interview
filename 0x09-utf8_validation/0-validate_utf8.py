@@ -6,7 +6,7 @@ def validUTF8(data):
     """ validate utf-8 in data comming """
     binary_10 = 0
     for code in data:
-        code = '{0:08b}'.format(code)
+        code = '{0:08b}'.format(code)[-8:]
         if binary_10 != 0:
             binary_10 -= 1
             if not code.startswith('10'):
