@@ -13,4 +13,7 @@ def validUTF8(data):
                 return False
         elif code[0] == '1':
             binary_10 = len(code.split('0')[0]) - 1
+            if binary_10 == 1 or binary_10 > 4:
+                return False
+            binary_10 -= 1
     return True
