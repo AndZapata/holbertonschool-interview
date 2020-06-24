@@ -16,4 +16,6 @@ def validUTF8(data):
             if binary_10 == 1 or binary_10 > 4:
                 return False
             binary_10 -= 1
+    if binary_10 != 0:
+        return False
     return True
