@@ -25,6 +25,7 @@ int slide_line(int *line, size_t size, int direction)
 				{
 					line[i - 1] += line[j - 1];
 					line[j - 1] = 0;
+					return (1);
 				}
 			}
 		}
@@ -38,10 +39,11 @@ int slide_line(int *line, size_t size, int direction)
 			{
 				if (line[i] == 0)
 					continue;
-				if (i > j && line[i] == line[j])
+				if (j != i && line[i] == line[j])
 				{
 					line[j] += line[i];
 					line[i] = 0;
+					return (1);
 				}
 			}
 		}
