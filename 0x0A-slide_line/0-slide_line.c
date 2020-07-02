@@ -6,11 +6,12 @@
  * @line: line of elements to be checked
  * @size: Number of elements in an array
  * @direction: where numbers have to be added
+ * Return: 1 if possible, otherwise 0
  */
 
 int slide_line(int *line, size_t size, int direction)
 {
-        size_t i, j;
+	size_t i, j;
 
 	if (direction == 1)
 	{
@@ -27,7 +28,7 @@ int slide_line(int *line, size_t size, int direction)
 				}
 			}
 		}
-		return 1;
+		return (1);
 	}
 	else if (direction == 2)
 	{
@@ -44,8 +45,8 @@ int slide_line(int *line, size_t size, int direction)
 				}
 			}
 		}
-		return 1;
+		return (1);
 	}
 	else
-		return 0;
+		return (0);
 }
