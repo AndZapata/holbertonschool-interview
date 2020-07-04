@@ -11,44 +11,98 @@
 
 int slide_line(int *line, size_t size, int direction)
 {
-	size_t i, j;
+        if (direction == 1)
+                return (slide_left(line, size));
+        if (direction == 2)
+                return (slide_right(line, size));
+        else
+                return (0);
+}
 
-	if (direction == 1)
-	{
-		for (i = size; i > 0; i--)
-		{
-			for (j = size - 1; j > 0; j--)
-			{
-				if (line[i - 1] == 0)
-					continue;
-				if (i != j && line[i - 1] == line[j - 1])
-				{
-					line[i - 1] += line[j - 1];
-					line[j - 1] = 0;
-					break;
-				}
-			}
-		}
-		return (1);
-	}
-	else if (direction == 2)
-	{
-		for (i = 0; i < size; i++)
-		{
-			for (j = 1; j < size; j++)
-			{
-				if (line[i] == 0)
-					continue;
-				if (j != i && line[i] == line[j])
-				{
-					line[j] += line[i];
-					line[i] = 0;
-					break;
-				}
-			}
-		}
-		return (1);
-	}
-	else
-		return (0);
+/**
+ * slide_left - slides an array to sum numbers
+ *
+ * @line: line of elements to be checked
+ * @size: Number of elements in an array
+ * Return: 1 if success
+ */
+
+int slide_left(int *line, size_t size)
+{
+        int current = 0, next = 0;
+        size_t i, idx = 0;
+
+        for (i = 0; i < size; i++)
+        {
+                if (line[i] != 0 && current == 0)
+                        current = line[i];
+                else if (current != 0 && line[i] != 0)
+                        next = line[i];
+                if (current != 0 && next != 0)
+                {
+                        if (current == next)
+                        {
+                                line[idx++] = current + next;
+                                current = 0;
+                                next = 0;
+                        }
+                        else
+                        {
+                                line[idx++] = current;
+                                current = next;
+                                next = 0;
+                                if (i == size - 1)
+                                        line[idx++] = current;
+                        }
+                }
+                if (current != next && i == size - 1)
+                        line[idx++] = current;
+        }
+        for (i = idx; i < size; i++)
+                line[i] = 0;
+        return (1);
+}
+
+/**
+ * slide_right - slides an array to sum numbers
+ *
+ * @line: line of elements to be checked
+ * @size: Number of elements in an array
+ * Return: 1 if success
+ */
+
+int slide_right(int *line, size_t size)
+{
+        int current = 0, prev = 0;
+        size_t i, idx = size - 1;
+
+        for (i = size - 1; i < size; i--)
+        {
+                if (line[i] != 0 && current == 0)
+                        current = line[i];
+                else if (current != 0 && line[i] != 0)
+                        prev = line[i];
+                if (current != 0 && prev != 0)
+                {
+                        if (current == prev)
+                        {
+                                line[idx--] = current + prev;
+                                current = 0;
+                                prev = 0;
+                        }
+                        else
+                        {
+                                line[idx--] = current;
+                                current = prev;
+                                prev = 0;
+                                if (i == 0)
+                                        line[idx--] = current;
+                        }
+                }
+                if (current != prev && i == 0)
+                        line[idx--] = current;
+        }
+        for (i = 0; i < idx + 1; i++)
+                line[i] = 0;
+        return (1);
 }
