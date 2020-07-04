@@ -99,7 +99,7 @@ int slide_right(int *line, size_t size)
                                         line[idx--] = current;
                         }
                 }
-                if (current != prev && i == 0)
+                else if (current != prev && i == 0)
                         line[idx--] = current;
         }
         for (i = 0; i < idx + 1; i++)
