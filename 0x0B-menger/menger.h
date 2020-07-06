@@ -1,5 +1,5 @@
-#ifndef SLIDE_LINE
-#define SLIDE_LINE
+#ifndef MENGER_SPONGE
+#define MENGER_SPONGE
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,4 +7,4 @@
 
 void menger(int level);
 
-#endif /* SLIDE_LINE */
+#endif /* MENGER_SPONGE */
