@@ -25,24 +25,22 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  */
 avl_t *node_avl_insertion(int *array, size_t first, size_t last, avl_t *root)
 {
-	size_t half;
-	avl_t *newNode;
+	size_t h;
+	avl_t *n;
 
 	if (first > last)
 		return (NULL);
 
-	half = (first + last) / 2;
-	newNode = new_node(root, array[half]);
+	h = (first + last) / 2;
+	n = new_node(root, array[h]);
 
-	if (!newNode)
+	if (!n)
 		return (NULL);
-	if (half != first)
-		newNode->left = node_avl_insertion(array, first,
-						   half - 1, newNode);
-	if (half != last)
-		newNode->right = node_avl_insertion(array, half + 1,
-						    last, newNode);
-	return (newNode);
+	if (h != first)
+		n->left = node_avl_insertion(array, first, h - 1, n);
+	if (h != last)
+		n->right = node_avl_insertion(array, h + 1, last, n);
+	return (n);
 }
 
 /**
